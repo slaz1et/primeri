@@ -1,0 +1,22 @@
+volatile int out_mode = 0;
+
+void setup() {
+  pinMode(4, INPUT);
+  
+ Serial.begin(9600);
+  attachInterrupt(digitalPinToInterrupt(3), func, RISING);
+}
+
+void func(){
+ out_mode = !out_mode;
+ digitalWrite(4, out_mode); 
+ Serial.println(5);
+}
+  
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Serial.println(out_mode);
+  delay(1000);
+  
+}
